@@ -6,6 +6,7 @@ export class EmployeeModel{
     emailId: string;
     contactNo: string;
     address: string;
+    pinCode: string;
 
     constructor(){
         this.empId = 0;
@@ -15,5 +16,6 @@ export class EmployeeModel{
         this.emailId = '';
         this.contactNo = '';
         this.address = '';
+        this.pinCode = '';
     }
 }
