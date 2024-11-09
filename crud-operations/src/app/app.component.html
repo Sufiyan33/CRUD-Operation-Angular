@@ -31,7 +31,8 @@
         <h6 style="color: white;">New Employee</h6>
       </div>
       <div class="card-body">
-        <form>
+        <!-- let's bind formGroup to our employeeFrom-->
+        <form [formGroup]="employeeForm">
           <div class="row">
             <div class="col-12">
               <label for="">Name</label>
