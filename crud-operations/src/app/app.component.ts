@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { EmployeeModel } from './model/Employee';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, ReactiveFormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   
-  employeeForm?: FormGroup;
+  employeeForm: FormGroup = new FormGroup({});
   employeeObj: EmployeeModel = new EmployeeModel();
 
   constructor(){
