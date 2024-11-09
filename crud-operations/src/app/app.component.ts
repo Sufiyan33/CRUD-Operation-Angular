@@ -64,4 +64,17 @@ export class AppComponent {
   onReset(){
 
   }
+
+  onEdit(item: EmployeeModel){
+    this.employeeObj = item;
+    this.createForm();
+  }
+
+  onDelete(item: EmployeeModel){
+    //item = null;
+  }
+
+  onUpdate(){
+    
+  }
 }
