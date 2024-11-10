@@ -37,7 +37,7 @@ export class AppComponent {
       emailId: new FormControl(this.employeeObj.emailId),
       contactNo: new FormControl(this.employeeObj.contactNo),
       address: new FormControl(this.employeeObj.address),
-      pinCode: new FormControl(this.employeeObj.pinCode, [Validators.required, Validators.minLength(6)])
+      pinCode: new FormControl(this.employeeObj.pinCode, [Validators.required, Validators.minLength(6), Validators.pattern('^[0-9]+$')])
     })
   }
   // Now let's bind this form to html fileds.

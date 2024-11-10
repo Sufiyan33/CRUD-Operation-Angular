@@ -89,6 +89,9 @@
                   @if (employeeForm.controls['pinCode'].errors?.['required']) {
                     <span>{{validationMessage.PIN_CODE}}</span>
                   }
+                  @if (employeeForm.controls['pinCode'].errors?.['pattern']) {
+                    <span>Pin code only in digit</span>
+                  }
                   @if (employeeForm.controls['pinCode'].errors?.['minlength']) {
                     <span>{{validationMessage.PIN_CODE_LENGTH}}</span>
                   }
