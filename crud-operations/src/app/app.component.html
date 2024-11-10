@@ -57,7 +57,7 @@
                     <span>{{validationMessage.NAME_REQUIRED}}</span>
                   }
                   @if (employeeForm.controls['name'].errors?.['pattern']) {
-                    <span>Name only should be alphabet</span>
+                    <span>{{validationMessage.NAME_PATTERN}}</span>
                   }
                   @if (employeeForm.controls['name'].errors?.['maxlength']) {
                     <span>{{validationMessage.NAME_LENGTH}}</span>
@@ -68,6 +68,15 @@
             <div class="col-6">
               <label for="">Email-Id</label>
               <input type="text" formControlName="emailId" class="form-control">
+              <div class="text-danger">
+                @if (employeeForm.controls['emailId'].touched) {
+                  @if (employeeForm.controls['emailId'].errors?.['required']) {
+                    <span>{{validationMessage.EMAIL_REQUIRED}}</span>
+                  }@if (employeeForm.controls['emailId'].errors?.['email']) {
+                    <span>{{validationMessage.EMAIL_VALID}}</span>
+                  }
+                }
+              </div>
             </div>
             <div class="col-6">
               <label for="">Contact No</label>
@@ -90,7 +99,7 @@
                     <span>{{validationMessage.PIN_CODE}}</span>
                   }
                   @if (employeeForm.controls['pinCode'].errors?.['pattern']) {
-                    <span>Pin code only in digit</span>
+                    <span>{{validationMessage.PIN_CODE_PATTERN}}</span>
                   }
                   @if (employeeForm.controls['pinCode'].errors?.['minlength']) {
                     <span>{{validationMessage.PIN_CODE_LENGTH}}</span>
