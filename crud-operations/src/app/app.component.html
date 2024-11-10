@@ -81,6 +81,16 @@
             <div class="col-6">
               <label for="">Contact No</label>
               <input type="text" formControlName="contactNo" class="form-control">
+              <div class="text-danger">
+                @if (employeeForm.controls['contactNo'].touched) {
+                  @if (employeeForm.controls['contactNo'].errors?.['required']) {
+                    <span>{{validationMessage.CONTACT_REQUIRED}}</span>
+                  }
+                  @if (employeeForm.controls['contactNo'].errors?.['pattern']) {
+                    <span>{{validationMessage.CONTACT_LENGTH}}</span>
+                  }
+                }
+              </div>
             </div>
             <div class="col-6">
               <label for="">City</label>
