@@ -49,7 +49,7 @@ export class AppComponent {
    for that you need to add some code in constructor.
   */
   onSave(){
-    debugger;
+    //debugger;
     const oldData = localStorage.getItem("empData");
     if(oldData != null){
       const parseData = JSON.parse(oldData);
@@ -72,12 +72,20 @@ export class AppComponent {
     this.createForm();
   }
 
-  onDelete(item: EmployeeModel){
-    //item = null;
+  /*
+    Now, to delete first find index and use splice method to delete that particular index.
+  */
+  onDelete(id: number){
+    const isDelete = confirm('Are you sure, you want to delete?')
+    if(isDelete){
+      const index =  this.employeeList.findIndex(m => m.empId == id);
+      this.employeeList.splice(index, 1);
+      localStorage.setItem('empData', JSON.stringify(this.employeeList));
+    }
   }
 
   onUpdate(){
-    debugger;
+    //debugger;
     const record = this.employeeList.find(m => m.empId == this.employeeForm.controls['empId'].value);
     if(record != undefined){
       record.address = this.employeeForm.controls['address'].value;
