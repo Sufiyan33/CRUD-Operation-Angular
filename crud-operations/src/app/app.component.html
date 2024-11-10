@@ -51,6 +51,11 @@
             <div class="col-12">
               <label for="">Name</label>
               <input type="text" formControlName="name" class="form-control">
+              <div class="text-danger">
+                @if (employeeForm.controls['name'].touched) {
+                  <small>{{validationMessage.NAME_REQUIRED}}</small>
+                }
+              </div>
             </div>
             <div class="col-6">
               <label for="">Email-Id</label>

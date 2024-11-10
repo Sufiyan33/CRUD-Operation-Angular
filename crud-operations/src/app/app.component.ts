@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { EmployeeModel } from './model/Employee';
+import { Constants } from './constant/Constant';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent {
   employeeForm: FormGroup = new FormGroup({});
   employeeObj: EmployeeModel = new EmployeeModel();
   employeeList: EmployeeModel[]=[];
+  validationMessage: any = Constants.VALIDATION_MESSAGE;
 
   constructor(){
     this.createForm();
@@ -28,13 +30,13 @@ export class AppComponent {
   createForm(){
     this.employeeForm = new FormGroup({
       empId: new FormControl(this.employeeObj.empId),
-      name: new FormControl(this.employeeObj.name),
+      name: new FormControl(this.employeeObj.name, [Validators.required]),
       city: new FormControl(this.employeeObj.city),
       state: new FormControl(this.employeeObj.state),
       emailId: new FormControl(this.employeeObj.emailId),
       contactNo: new FormControl(this.employeeObj.contactNo),
       address: new FormControl(this.employeeObj.address),
-      pinCode: new FormControl(this.employeeObj.pinCode)
+      pinCode: new FormControl(this.employeeObj.pinCode, [Validators.required])
     })
   }
   // Now let's bind this form to html fileds.
