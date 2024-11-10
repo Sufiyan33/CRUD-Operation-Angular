@@ -49,7 +49,7 @@ export class AppComponent {
    for that you need to add some code in constructor.
   */
   onSave(){
-    //debugger;
+    debugger;
     const oldData = localStorage.getItem("empData");
     if(oldData != null){
       const parseData = JSON.parse(oldData);
@@ -59,6 +59,8 @@ export class AppComponent {
       this.employeeList.unshift(this.employeeForm.value);
     }
     localStorage.setItem("empData", JSON.stringify(this.employeeList))
+    this.employeeObj = new EmployeeModel();
+    this.createForm();
   }
 
   onReset(){
@@ -75,6 +77,17 @@ export class AppComponent {
   }
 
   onUpdate(){
-    
+    debugger;
+    const record = this.employeeList.find(m => m.empId == this.employeeForm.controls['empId'].value);
+    if(record != undefined){
+      record.address = this.employeeForm.controls['address'].value;
+      record.name = this.employeeForm.controls['name'].value;
+      record.city = this.employeeForm.controls['city'].value;
+      record.emailId = this.employeeForm.controls['emailId'].value;
+      record.contactNo = this.employeeForm.controls['contactNo'].value;
+    }
+    localStorage.setItem('empData', JSON.stringify(this.employeeList));
+    this.employeeObj = new EmployeeModel();
+    this.createForm();
   }
 }
