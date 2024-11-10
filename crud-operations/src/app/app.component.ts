@@ -59,12 +59,12 @@ export class AppComponent {
       this.employeeList.unshift(this.employeeForm.value);
     }
     localStorage.setItem("empData", JSON.stringify(this.employeeList))
-    this.employeeObj = new EmployeeModel();
-    this.createForm();
+    this.onReset();
   }
 
   onReset(){
-
+    this.employeeObj = new EmployeeModel();
+    this.createForm();
   }
 
   onEdit(item: EmployeeModel){
@@ -95,7 +95,6 @@ export class AppComponent {
       record.contactNo = this.employeeForm.controls['contactNo'].value;
     }
     localStorage.setItem('empData', JSON.stringify(this.employeeList));
-    this.employeeObj = new EmployeeModel();
-    this.createForm();
+    this.onReset();
   }
 }

@@ -79,13 +79,13 @@
           </div>
           <div class="row pt-2">
             <div class="col-6 text-center">
-              <button class="btn btn-secondary" (click)="onReset()">Reset</button>
+              <button type="button" class="btn btn-secondary" (click)="onReset()">Reset</button>
             </div>
             <div class="col-6 text-center">
               @if (employeeForm.controls['empId'].value == '0') {
-                <button class="btn btn-success" (click)="onSave()">Save Employee</button>
+                <button type="button" class="btn btn-success" (click)="onSave()">Save Employee</button>
               }@else {
-                <button class="btn btn-warning" (click)="onUpdate()">Update Employee</button>
+                <button type="button" class="btn btn-warning" (click)="onUpdate()">Update Employee</button>
               }
             </div>
           </div>
