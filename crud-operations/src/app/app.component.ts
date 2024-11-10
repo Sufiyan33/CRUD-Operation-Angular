@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { EmployeeModel } from './model/Employee';
 import { Constants } from './constant/Constant';
+import { max, min } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -30,13 +31,13 @@ export class AppComponent {
   createForm(){
     this.employeeForm = new FormGroup({
       empId: new FormControl(this.employeeObj.empId),
-      name: new FormControl(this.employeeObj.name, [Validators.required]),
+      name: new FormControl(this.employeeObj.name, [Validators.required, Validators.pattern('^[a-zA-z]+$') ,Validators.maxLength(15)]),
       city: new FormControl(this.employeeObj.city),
       state: new FormControl(this.employeeObj.state),
       emailId: new FormControl(this.employeeObj.emailId),
       contactNo: new FormControl(this.employeeObj.contactNo),
       address: new FormControl(this.employeeObj.address),
-      pinCode: new FormControl(this.employeeObj.pinCode, [Validators.required])
+      pinCode: new FormControl(this.employeeObj.pinCode, [Validators.required, Validators.minLength(6)])
     })
   }
   // Now let's bind this form to html fileds.

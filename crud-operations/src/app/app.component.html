@@ -54,7 +54,13 @@
               <div class="text-danger">
                 @if (employeeForm.controls['name'].touched) {
                   @if (employeeForm.controls['name'].errors?.['required']) {
-                    <small>{{validationMessage.NAME_REQUIRED}}</small>
+                    <span>{{validationMessage.NAME_REQUIRED}}</span>
+                  }
+                  @if (employeeForm.controls['name'].errors?.['pattern']) {
+                    <span>Name only should be alphabet</span>
+                  }
+                  @if (employeeForm.controls['name'].errors?.['maxlength']) {
+                    <span>{{validationMessage.NAME_LENGTH}}</span>
                   }
                 }
               </div>
@@ -81,7 +87,10 @@
               <div class="text-danger">
                 @if (employeeForm.controls['pinCode'].touched) {
                   @if (employeeForm.controls['pinCode'].errors?.['required']) {
-                    <small>{{validationMessage.PIN_CODE}}</small>
+                    <span>{{validationMessage.PIN_CODE}}</span>
+                  }
+                  @if (employeeForm.controls['pinCode'].errors?.['minlength']) {
+                    <span>{{validationMessage.PIN_CODE_LENGTH}}</span>
                   }
                 }
               </div>
