@@ -140,6 +140,13 @@
             <div class="col-12">
               <label for="">Address</label>
               <textarea formControlName="address" class="form-control"></textarea>
+              <div class="text-danger">
+                @if (employeeForm.controls['address'].touched) {
+                  @if (employeeForm.controls['address'].errors?.['required']) {
+                    {{validationMessage.ADDRESS_REQUIRED}}
+                  }
+                }
+              </div>
             </div>
           </div>
           <div class="row pt-2">

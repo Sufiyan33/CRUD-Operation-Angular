@@ -36,7 +36,7 @@ export class AppComponent {
       state: new FormControl(this.employeeObj.state, [Validators.required, Validators.pattern('^[a-zA-z]+$')]),
       emailId: new FormControl(this.employeeObj.emailId, [Validators.required, Validators.email]),
       contactNo: new FormControl(this.employeeObj.contactNo, [Validators.required, Validators.pattern('^[0-9]{10}$')]),
-      address: new FormControl(this.employeeObj.address),
+      address: new FormControl(this.employeeObj.address, [Validators.required]),
       pinCode: new FormControl(this.employeeObj.pinCode, [Validators.required, Validators.minLength(6), Validators.pattern('^[0-9]+$')])
     })
   }
