@@ -95,6 +95,16 @@
             <div class="col-6">
               <label for="">City</label>
               <input type="text" formControlName="city" class="form-control">
+              <div class="text-danger">
+                @if (employeeForm.controls['city'].touched) {
+                  @if (employeeForm.controls['city'].errors?.['required']) {
+                    {{validationMessage.CITY_REQUIRED}}
+                  }
+                  @if (employeeForm.controls['city'].errors?.['pattern']) {
+                    {{validationMessage.CITY_VALID}}
+                  }
+                }
+              </div>
             </div>
             <div class="col-6">
               <label for="">State</label>
