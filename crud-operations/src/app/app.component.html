@@ -109,6 +109,16 @@
             <div class="col-6">
               <label for="">State</label>
               <input type="text" formControlName="state" class="form-control">
+              <div class="text-danger">
+                @if (employeeForm.controls['state'].touched) {
+                  @if (employeeForm.controls['state'].errors?.['required']) {
+                    {{validationMessage.STATE_REQUIRED}}
+                  }
+                  @if (employeeForm.controls['state'].errors?.['pattern']) {
+                    {{validationMessage.STATE_VALID}}
+                  }
+                }
+              </div>
             </div>
             <div class="col-6">
               <label for="">Pin code</label>

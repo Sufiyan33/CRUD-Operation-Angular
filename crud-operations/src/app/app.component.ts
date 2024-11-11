@@ -33,7 +33,7 @@ export class AppComponent {
       empId: new FormControl(this.employeeObj.empId),
       name: new FormControl(this.employeeObj.name, [Validators.required, Validators.pattern('^[a-zA-z]+$') ,Validators.maxLength(15)]),
       city: new FormControl(this.employeeObj.city, [Validators.required, Validators.pattern('^[a-zA-z]+$')]),
-      state: new FormControl(this.employeeObj.state),
+      state: new FormControl(this.employeeObj.state, [Validators.required, Validators.pattern('^[a-zA-z]+$')]),
       emailId: new FormControl(this.employeeObj.emailId, [Validators.required, Validators.email]),
       contactNo: new FormControl(this.employeeObj.contactNo, [Validators.required, Validators.pattern('^[0-9]{10}$')]),
       address: new FormControl(this.employeeObj.address),
